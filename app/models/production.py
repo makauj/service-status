@@ -1,5 +1,5 @@
 from app.db import get_connection
-from app.utils.sanitizer import sanitize_id_no
+from app.utils.sanitize import sanitize_id_no
 
 def insert_production(raw_id, expires_on, user_image, produced_on, dispatched_on):
     id_no = sanitize_id_no(raw_id)

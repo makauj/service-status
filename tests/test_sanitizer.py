@@ -1,5 +1,5 @@
 import unittest
-from app.utils.sanitizer import sanitize_id_no
+from app.utils.sanitize import sanitize_id_no
 
 class TestSanitizer(unittest.TestCase):
     def test_removes_non_digits(self):

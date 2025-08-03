@@ -1,5 +1,5 @@
 from app.db import get_connection
-from app.utils.sanitizer import sanitize_id_no
+from app.utils.sanitize import sanitize_id_no
 
 def insert_user(raw_id, name, dob, expires_in, phone_no, image_data):
     id_no = sanitize_id_no(raw_id)

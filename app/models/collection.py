@@ -1,5 +1,5 @@
 from app.db import get_connection
-from app.utils.sanitizer import sanitize_id_no
+from app.utils.sanitize import sanitize_id_no
 from datetime import datetime
 
 def insert_collection(raw_id, collected_by, phone_no, email_address=None):

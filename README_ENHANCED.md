@@ -5,8 +5,9 @@ A comprehensive web-based system for managing collections data with Excel upload
 ## 🚀 Features
 
 ### Core Functionality
+
 - **Excel File Upload**: Upload Excel files with automatic data processing
-- **Business Logic Enforcement**: 
+- **Business Logic Enforcement**:
   - If 3 columns (ID, Name, Contact) are filled → Record becomes read-only
   - If only 2 columns filled and one is ID → Record remains editable
   - Email column is ignored during import but can be added later
@@ -15,6 +16,7 @@ A comprehensive web-based system for managing collections data with Excel upload
 - **Audit Trail**: Track who updated what and when
 
 ### Web Interface
+
 - **Modern React Frontend**: Clean, responsive UI
 - **Drag & Drop Upload**: Easy Excel file upload
 - **Advanced Filtering**: Filter by ID, read-only status, date ranges
@@ -22,6 +24,7 @@ A comprehensive web-based system for managing collections data with Excel upload
 - **Real-time Updates**: Automatic refresh after operations
 
 ### API Features
+
 - **RESTful API**: FastAPI-based with automatic documentation
 - **Comprehensive Endpoints**: CRUD operations, filtering, history views
 - **Authentication**: Simple header-based user tracking
@@ -29,7 +32,7 @@ A comprehensive web-based system for managing collections data with Excel upload
 
 ## 🏗️ Architecture
 
-```
+```script
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
 │   React Frontend│    │  FastAPI Backend│    │ PostgreSQL DB   │
 │   (Port 3000)   │◄──►│   (Port 8000)   │◄──►│   (Port 5432)   │
@@ -47,23 +50,26 @@ A comprehensive web-based system for managing collections data with Excel upload
 ### Using Docker (Recommended)
 
 1. **Clone and Navigate**
+
    ```bash
    cd service_status
    ```
 
 2. **Start the Application**
+
    ```bash
    docker-compose up --build
    ```
 
 3. **Access the Application**
-   - Frontend: http://localhost:3000
-   - API Documentation: http://localhost:8000/docs
-   - API Health Check: http://localhost:8000/health
+   - Frontend: <http://localhost:3000>
+   - API Documentation: <http://localhost:8000/docs>
+   - API Health Check: <http://localhost:8000/health>
 
 ### Local Development
 
 1. **Backend Setup**
+
    ```bash
    # Install Python dependencies
    pip install -r requirements.txt
@@ -76,6 +82,7 @@ A comprehensive web-based system for managing collections data with Excel upload
    ```
 
 2. **Frontend Setup**
+
    ```bash
    cd frontend
    npm install
@@ -85,6 +92,7 @@ A comprehensive web-based system for managing collections data with Excel upload
 ## 📊 Database Schema
 
 ### Collections Table
+
 ```sql
 CREATE TABLE collections (
     record_id SERIAL PRIMARY KEY,
@@ -100,12 +108,13 @@ CREATE TABLE collections (
 ```
 
 ### Database Triggers
+
 - **Read-Only Enforcement**: Prevents updates on read-only records
 - **Audit Trail**: Automatically updates `last_updated_at` and `last_updated_by`
 
 ## 📁 Project Structure
 
-```
+```script
 service_status/
 ├── app/                          # Backend application
 │   ├── models/                   # Database models
@@ -135,6 +144,7 @@ service_status/
 ## 🔧 API Endpoints
 
 ### Core Endpoints
+
 - `GET /` - API information
 - `GET /health` - Health check
 - `POST /upload/` - Upload Excel file
@@ -147,32 +157,38 @@ service_status/
 - `DELETE /collections/{record_id}` - Delete collection
 
 ### Query Parameters
+
 - `ID` - Filter by ID number
 - `read_only` - Filter by read-only status (true/false)
 - `skip` - Pagination offset
 - `limit` - Pagination limit
 
 ### Headers
+
 - `X-User` - Required for operations that modify data
 
 ## 📤 Excel Upload Format
 
 ### Required Columns
+
 - `ID` - Integer identifier (required)
 - `Name` - Person's name
 - `Contact` - Contact information
 
 ### Optional Columns
+
 - `Date` - Collection date (defaults to current date)
 - `Collected` - Ignored during processing
 
 ### Business Rules
+
 1. **Read-Only Records**: If ID, Name, and Contact are all filled → record becomes read-only
 2. **Editable Records**: If only 2 columns filled and one is ID → record remains editable
 3. **Email Handling**: Email column is ignored during import but can be added via API
 4. **Multiple Entries**: Same ID can have multiple collection records
 
 ### Example Excel Format
+
 | ID | Name | Contact | Date | Collected |
 |----|------|---------|------|-----------|
 | 1001 | John Doe | 0712345678 | 2024-01-15 | Yes |
@@ -182,6 +198,7 @@ service_status/
 ## 🎯 Usage Examples
 
 ### 1. Upload Excel File
+
 ```bash
 curl -X POST "http://localhost:8000/upload/" \
   -H "X-User: admin" \
@@ -189,16 +206,19 @@ curl -X POST "http://localhost:8000/upload/" \
 ```
 
 ### 2. Get All Collections
+
 ```bash
 curl "http://localhost:8000/collections/"
 ```
 
 ### 3. Get Editable Collections Only
+
 ```bash
 curl "http://localhost:8000/collections/editable/"
 ```
 
 ### 4. Update a Collection
+
 ```bash
 curl -X PUT "http://localhost:8000/collections/1" \
   -H "X-User: admin" \
@@ -211,6 +231,7 @@ curl -X PUT "http://localhost:8000/collections/1" \
 ```
 
 ### 5. Get Collection History
+
 ```bash
 curl "http://localhost:8000/collections/history/1001"
 ```
@@ -225,6 +246,7 @@ curl "http://localhost:8000/collections/history/1001"
 ## 🧪 Testing
 
 ### API Testing
+
 ```bash
 # Test the API endpoints
 curl http://localhost:8000/health
@@ -232,6 +254,7 @@ curl http://localhost:8000/docs
 ```
 
 ### Frontend Testing
+
 ```bash
 cd frontend
 npm test
@@ -242,6 +265,7 @@ npm test
 ### Common Issues
 
 1. **Database Connection Failed**
+
    ```bash
    # Check if PostgreSQL is running
    docker-compose ps
@@ -261,6 +285,7 @@ npm test
    - Check browser console for errors
 
 ### Logs
+
 ```bash
 # View all logs
 docker-compose logs
@@ -274,6 +299,7 @@ docker-compose logs db
 ## 🔄 Development
 
 ### Adding New Features
+
 1. Update database schema in `init.sql`
 2. Modify SQLAlchemy models in `app/models/`
 3. Update Pydantic schemas in `app/schemas.py`
@@ -282,6 +308,7 @@ docker-compose logs db
 6. Update frontend components as needed
 
 ### Code Style
+
 - Python: Follow PEP 8
 - JavaScript: Use ESLint configuration
 - SQL: Use consistent formatting
@@ -289,12 +316,14 @@ docker-compose logs db
 ## 📈 Performance
 
 ### Optimizations
+
 - Database indexes on frequently queried columns
 - Connection pooling for database connections
 - Gzip compression for API responses
 - Static asset caching in nginx
 
 ### Monitoring
+
 - Health check endpoints
 - Database connection monitoring
 - API response time tracking
@@ -314,6 +343,7 @@ This project is licensed under the MIT License.
 ## 🆘 Support
 
 For support and questions:
+
 - Check the API documentation at `/docs`
 - Review the logs for error details
-- Create an issue with detailed information 
+- Create an issue with detailed information
