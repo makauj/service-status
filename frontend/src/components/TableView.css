@@ -1,0 +1,184 @@
+.table-view {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.table-view h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.table-view .controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.table-view .filters {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.table-view .filter-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.table-view .filter-group label {
+  font-weight: bold;
+  color: #555;
+}
+
+.table-view .filter-group input,
+.table-view .filter-group select {
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.table-view .refresh-btn {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.table-view .refresh-btn:hover {
+  background-color: #0056b3;
+}
+
+.table-view .refresh-btn:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.table-view .table-container {
+  overflow-x: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.table-view table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.table-view th,
+.table-view td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.table-view th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+  color: #333;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.table-view tr:hover {
+  background-color: #f5f5f5;
+}
+
+.table-view .status-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.table-view .status-editable {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.table-view .status-readonly {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.table-view .loading {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+}
+
+.table-view .error {
+  text-align: center;
+  padding: 40px;
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+.table-view .empty-state {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+}
+
+.table-view .pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.table-view .pagination button {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.table-view .pagination button:hover {
+  background-color: #f8f9fa;
+}
+
+.table-view .pagination button:disabled {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+  color: #6c757d;
+}
+
+.table-view .pagination .current-page {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.table-view .summary {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #e7f3ff;
+  border: 1px solid #b3d9ff;
+  border-radius: 4px;
+  color: #004085;
+}
+
+.table-view .summary strong {
+  color: #002752;
+} 

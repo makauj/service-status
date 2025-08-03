@@ -1,0 +1,11 @@
+mysql-connector-python
+pandas
+openpyxl
+python-dotenv
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+pydantic
+python-multipart
+alembic
